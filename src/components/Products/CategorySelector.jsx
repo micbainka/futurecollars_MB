@@ -5,16 +5,24 @@ export const CategorySelector = ({ selectedCategory, onChange }) => {
     "furniture",
     "tablets",
     "groceries",
-    "non-existing-category",
+    "non-existing category",
   ];
 
   return (
-    <select value={selectedCategory} onChange={onChange}>
-      {categories.map((category) => (
-        <option key={category} value={category}>
-          {category}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label for="category">Select a category:</label>
+      <select
+        id="category"
+        style={{ "margin-left": "20px", height: "30px" }}
+        value={selectedCategory}
+        onChange={onChange}
+      >
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };

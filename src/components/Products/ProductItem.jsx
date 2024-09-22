@@ -10,7 +10,7 @@ export const ProductItem = ({ product }) => {
         style={{ width: "100px" }}
         loading="lazy"
       />
-      <div>
+      <div style={{ "margin-left": "20px" }}>
         <h3>{product.title}</h3>
         <p>{product.description}</p>
         <p>Price: {product.price}</p>
