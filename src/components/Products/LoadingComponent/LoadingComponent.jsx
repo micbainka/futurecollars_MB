@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import "./LoadingComponent.css"; //
-import { CircularProgress } from '@mui/material';
+import { CircularProgress } from "@mui/material";
 
 export const LoadingComponent = () => {
   return (

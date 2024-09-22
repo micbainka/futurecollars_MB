@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { ProductItem } from './ProductItem';
-import { LoadingComponent } from './LoadingComponent/LoadingComponent';
-import { ErrorMessage } from './MessageComponents/ErrorMessage';
-import { NoItemsMessage } from './MessageComponents/NoItemsMessage';
+import React, { useEffect, useState } from "react";
+import { ProductItem } from "./ProductItem";
+import { LoadingComponent } from "./LoadingComponent/LoadingComponent";
+import { ErrorMessage } from "./MessageComponents/ErrorMessage";
+import { NoItemsMessage } from "./MessageComponents/NoItemsMessage";
 
 export const ProductList = (props) => {
   const [products, setProducts] = useState([]);
@@ -11,12 +11,12 @@ export const ProductList = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    setShowError(null);
-    
+    setShowError(false);
+
     fetch(`https://dummyjson.com/products/category/${props.category}`)
       .then((response) => {
         if (!response.ok) {
-        return Promise.reject()
+          return Promise.reject();
         }
         return response.json();
       })
@@ -29,15 +29,15 @@ export const ProductList = (props) => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [props.category]); 
+  }, [props.category]);
 
   if (isLoading) return <LoadingComponent />;
-  if (showError) return <ErrorMessage />; 
-  if (products.length === 0 ) return <NoItemsMessage />;
+  if (showError) return <ErrorMessage />;
+  if (products.length === 0) return <NoItemsMessage />;
 
   return (
     <div>
-      {products.map(product => (
+      {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
     </div>
