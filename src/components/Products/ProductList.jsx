@@ -22,7 +22,9 @@ export const ProductList = (props) => {
       })
       .then((data) => {
         setProducts(data.products);
+        console.log(data.products);
       })
+
       .catch(() => {
         setShowError(true);
       })

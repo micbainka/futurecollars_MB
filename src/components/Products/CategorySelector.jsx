@@ -13,7 +13,7 @@ export const CategorySelector = ({ selectedCategory, onChange }) => {
       <label for="category">Select a category:</label>
       <select
         id="category"
-        style={{ "margin-left": "20px", height: "30px" }}
+        style={{ margin: "10px", height: "30px" }}
         value={selectedCategory}
         onChange={onChange}
       >
